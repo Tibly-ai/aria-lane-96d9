@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Book Aria Lane for your wedding, corporate event, private party, or venue. Send your date, venue, and event details and get a response with availability and a quote within 48 hours.">
+<title>Book Aria Lane — Request a Performance | Aria Lane Vocals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16121c;
+    --ink-soft: #241d2e;
+    --cream: #f7f2ea;
+    --cream-dim: #cfc6bc;
+    --gold: #c9a45c;
+    --gold-bright: #e0bd77;
+    --rose: #b06a7e;
+    --radius: 14px;
+    --max: 1120px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--ink);
+    color: var(--cream);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.15; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; display: block; margin-bottom: 14px;
+  }
+  .btn {
+    display: inline-block; padding: 15px 34px; border-radius: 100px;
+    font-weight: 600; font-size: 0.92rem; letter-spacing: 0.05em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-gold {
+    background: linear-gradient(120deg, var(--gold), var(--gold-bright));
+    color: var(--ink);
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,164,92,0.35); }
+  .btn-ghost {
+    border: 1px solid rgba(247,242,234,0.35); color: var(--cream);
+  }
+  .btn-ghost:hover { background: rgba(247,242,234,0.08); transform: translateY(-2px); }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(22,18,28,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,164,92,0.18);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px; max-width: var(--max); margin: 0 auto;
+  }
+  .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; letter-spacing: 0.04em; }
+  .brand em { font-style: normal; color: var(--gold); }
+  nav ul { display: flex; gap: 34px; list-style: none; align-items: center; }
+  nav a {
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--cream-dim); transition: color 0.2s ease; position: relative; padding-bottom: 4px;
+  }
+  nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+    background: var(--gold); transition: width 0.25s ease;
+  }
+  nav a:hover, nav a[aria-current="page"] { color: var(--cream); }
+  nav a:hover::after, nav a[aria-current="page"]::after { width: 100%; }
+  nav a.nav-cta {
+    color: var(--ink); background: var(--gold); padding: 10px 22px; border-radius: 100px;
+  }
+  nav a.nav-cta::after { display: none; }
+  nav a.nav-cta:hover { background: var(--gold-bright); color: var(--ink); }
+
+  /* Page hero */
+  .page-hero {
+    position: relative; overflow: hidden;
+    padding: 90px 0 70px; text-align: center;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(176,106,126,0.22), transparent 70%),
+      radial-gradient(ellipse 45% 40% at 15% 90%, rgba(201,164,92,0.14), transparent 70%),
+      var(--ink);
+  }
+  .page-hero::before {
+    content: "♪"; position: absolute; font-size: 18rem; color: rgba(201,164,92,0.05);
+    top: -50px; right: -20px; font-family: serif; pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+    max-width: 18ch; margin: 0 auto 20px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--gold-bright); }
+  .page-hero p.lead {
+    max-width: 56ch; margin: 0 auto; color: var(--cream-dim);
+    font-size: 1.08rem; font-weight: 300;
+  }
+
+  /* Booking layout */
+  .booking-section { padding: 90px 0 100px; }
+  .booking-grid {
+    display: grid; grid-template-columns: 1.5fr 1fr; gap: 56px; align-items: start;
+  }
+
+  /* Form */
+  .booking-form {
+    background: linear-gradient(160deg, var(--ink-soft), rgba(36,29,46,0.4));
+    border: 1px solid rgba(201,164,92,0.16);
+    border-radius: var(--radius);
+    padding: 44px 40px;
+  }
+  .booking-form h2 { font-size: 2rem; margin-bottom: 8px; }
+  .booking-form > p { color: var(--cream-dim); font-size: 0.92rem; font-weight: 300; margin-bottom: 30px; }
+  fieldset { border: none; margin-bottom: 34px; }
+  fieldset:last-of-type { margin-bottom: 26px; }
+  legend {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--gold-bright);
+    padding-bottom: 6px; margin-bottom: 18px; width: 100%;
+    border-bottom: 1px solid rgba(201,164,92,0.22);
+  }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field { margin-bottom: 18px; }
+  .field:last-child { margin-bottom: 0; }
+  label {
+    display: block; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--cream-dim); font-weight: 600; margin-bottom: 8px;
+  }
+  label .req { color: var(--gold); }
+  input, select, textarea {
+    width: 100%; padding: 13px 16px;
+    background: rgba(22,18,28,0.7);
+    border: 1px solid rgba(247,242,234,0.18);
+    border-radius: 10px;
+    color: var(--cream);
+    font-family: 'Manrope', sans-serif; font-size: 0.95rem; font-weight: 300;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  input::placeholder, textarea::placeholder { color: rgba(207,198,188,0.45); }
+  input:focus, select:focus, textarea:focus {
+    outline: none; border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(201,164,92,0.18);
+  }
+  select {
+    appearance: none;
+    background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+    background-position: calc(100% - 20px) 55%, calc(100% - 14px) 55%;
+    background-size: 6px 6px, 6px 6px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  select option { background: var(--ink-soft); color: var(--cream); }
+  textarea { resize: vertical; min-height: 130px; }
+  input[type="date"]::-webkit-calendar-picker-indicator { filter: invert(0.8) sepia(0.5) saturate(3) hue-rotate(0deg); cursor: pointer; }
+  .hint { font-size: 0.8rem; color: rgba(207,198,188,0.55); font-weight: 300; margin-top: 6px; letter-spacing: 0; text-transform: none; }
+  .form-submit { text-align: left; }
+  .form-submit button {
+    border: none; cursor: pointer; font-family: 'Manrope', sans-serif; width: 100%;
+    text-align: center; font-size: 1rem;
+  }
+  .form-note { font-size: 0.82rem; color: rgba(207,198,188,0.6); font-weight: 300; margin-top: 16px; text-align: center; }
+
+  /* Sidebar */
+  .booking-aside { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 110px; }
+  .aside-card {
+    background: var(--ink-soft); border-radius: var(--radius);
+    padding: 32px 28px; border-top: 2px solid var(--gold);
+  }
+  .aside-card h3 { font-size: 1.45rem; margin-bottom: 14px; }
+  .aside-card p { color: var(--cream-dim); font-size: 0.92rem; font-weight: 300; margin-bottom: 12px; }
+  .aside-card p:last-child { margin-bottom: 0; }
+  .steps { list-style: none; counter-reset: step; display: flex; flex-direction: column; gap: 18px; }
+  .steps li { display: flex; gap: 16px; align-items: flex-start; counter-increment: step; }
+  .steps li::before {
+    content: counter(step);
+    flex-shrink: 0; width: 34px; height: 34px; border-radius: 50%;
+    display: grid; place-items: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+    background: rgba(201,164,92,0.12); color: var(--gold-bright);
+    border: 1px solid rgba(201,164,92,0.35);
+  }
+  .steps strong { display: block; font-size: 0.95rem; color: var(--cream); }
+  .steps span { font-size: 0.85rem; color: var(--cream-dim); font-weight: 300; }
+  .aside-contact { font-size: 0.9rem; color: var(--cream-dim); }
+  .aside-contact a { color: var(--gold-bright); }
+  .aside-contact a:hover { text-decoration: underline; }
+  .aside-contact li { list-style: none; margin-bottom: 8px; }
+
+  /* FAQ */
+  .faq { padding: 0 0 110px; }
+  .section-head { text-align: center; max-width: 60ch; margin: 0 auto 60px; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 14px; }
+  .section-head p { color: var(--cream-dim); font-weight: 300; }
+  .faq-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .faq-item {
+    background: linear-gradient(160deg, var(--ink-soft), rgba(36,29,46,0.4));
+    border: 1px solid rgba(201,164,92,0.16);
+    border-radius: var(--radius); padding: 30px 28px;
+  }
+  .faq-item h3 { font-size: 1.35rem; margin-bottom: 10px; color: var(--gold-bright); }
+  .faq-item p { color: var(--cream-dim); font-size: 0.92rem; font-weight: 300; }
+
+  /* Footer */
+  .site-footer { padding: 56px 0 40px; }
+  .footer-grid {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 40px; flex-wrap: wrap; margin-bottom: 40px;
+  }
+  .site-footer .brand { font-size: 1.4rem; }
+  .site-footer p { color: var(--cream-dim); font-size: 0.88rem; max-width: 34ch; margin-top: 10px; font-weight: 300; }
+  .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-nav a { color: var(--cream-dim); font-size: 0.9rem; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--gold-bright); }
+  .footer-nav h3 { font-family: 'Manrope', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .copyright {
+    border-top: 1px solid rgba(247,242,234,0.1); padding-top: 24px;
+    font-size: 0.8rem; color: rgba(207,198,188,0.6); text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .booking-grid { grid-template-columns: 1fr; }
+    .booking-aside { position: static; }
+  }
+  @media (max-width: 820px) {
+    .nav { flex-direction: column; gap: 16px; }
+    nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .page-hero { padding: 70px 0 56px; }
+    .field-row { grid-template-columns: 1fr; }
+    .booking-form { padding: 34px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="/">Aria <em>Lane</em> Vocals</a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a class="nav-cta" href="/booking" aria-current="page">Book Me</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">Booking Request</span>
+      <h1>Let's put your event <em>on the calendar</em>.</h1>
+      <p class="lead">Whether it's a wedding, a gala, a Friday-night stage, or a backyard celebration, this is where it starts. Share your date, venue, and vision below — I read every request personally and reply within 48 hours.</p>
+    </div>
+  </section>
+
+  <section class="booking-section" aria-labelledby="form-title">
+    <div class="wrap booking-grid">
+
+      <form class="booking-form" action="/booking" method="post">
+        <h2 id="form-title">Request a Performance</h2>
+        <p>Fields marked with <span style="color:var(--gold);">*</span> are required. The more detail you share, the more accurate my quote will be.</p>
+
+        <fieldset>
+          <legend>Your Details</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full Name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" placeholder="Jordan Rivera" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="org">Organization <span style="text-transform:none; letter-spacing:0; font-weight:400; color:rgba(207,198,188,0.5);">(if any)</span></label>
+              <input type="text" id="org" name="organization" placeholder="Meridian Group, The Velvet Note…" autocomplete="organization">
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="(503) 555-0000" autocomplete="tel">
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Date &amp; Venue</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="event-date">Event Date <span class="req">*</span></label>
+              <input type="date" id="event-date" name="event_date" required>
+              <p class="hint">Not locked in yet? Pick your most likely date and mention flexibility below.</p>
+            </div>
+            <div class="field">
+              <label for="start-time">Approximate Start Time</label>
+              <input type="time" id="start-time" name="start_time">
+            </div>
+          </div>
+          <div class="field">
+            <label for="venue-name">Venue Name <span class="req">*</span></label>
+            <input type="text" id="venue-name" name="venue_name" placeholder="e.g. The Evergreen Ballroom" required>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="venue-city">City &amp; State <span class="req">*</span></label>
+              <input type="text" id="venue-city" name="venue_city" placeholder="Portland, OR" required>
+            </div>
+            <div class="field">
+              <label for="venue-type">Venue Setting</label>
+              <select id="venue-type" name="venue_type">
+                <option value="" selected>Select one…</option>
+                <option value="indoor">Indoor</option>
+                <option value="outdoor">Outdoor</option>
+                <option value="both">Both / mixed</option>
+                <option value="unsure">Not sure yet</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Event Details</legend>
+          <div class="field-row">
+            <div class="field">
+              <label for="event-type">Type of Event <span class="req">*</span></label>
+              <select id="event-type" name="event_type" required>
+                <option value="" selected>Select one…</option>
+                <option value="wedding">Wedding / Ceremony</option>
+                <option value="corporate">Corporate Event / Gala</option>
+                <option value="venue">Venue / Festival Set</option>
+                <option value="private">Private Party</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="guests">Estimated Guest Count</label>
+              <select id="guests" name="guest_count">
+                <option value="" selected>Select a range…</option>
+                <option value="under-50">Under 50</option>
+                <option value="50-150">50–150</option>
+                <option value="150-300">150–300</option>
+                <option value="300-plus">300+</option>
+              </select>
+            </div>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="lineup">Preferred Lineup</label>
+              <select id="lineup" name="lineup">
+                <option value="" selected>Select one…</option>
+                <option value="solo">Solo with backing tracks</option>
+                <option value="duo">Duo (vocals + guitar or piano)</option>
+                <option value="trio">Trio</option>
+                <option value="band">Full band</option>
+                <option value="advice">I'd like Aria's recommendation</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="duration">Performance Length</label>
+              <select id="duration" name="duration">
+                <option value="" selected>Select one…</option>
+                <option value="ceremony">Ceremony only (2–4 songs)</option>
+                <option value="one-set">One set (45–60 min)</option>
+                <option value="two-sets">Two sets (2 × 45 min)</option>
+                <option value="evening">Full evening (3+ hours)</option>
+              </select>
+            </div>
+          </div>
+          <div class="field">
+            <label for="details">Tell Me About Your Event <span class="req">*</span></label>
+            <textarea id="details" name="details" required placeholder="The occasion, the atmosphere you're going for, any must-play songs or special moments (first dance, award reveal, surprise serenade…), and anything else I should know."></textarea>
+            <p class="hint">Special song requests are welcome — learning your song is part of every wedding and private booking.</p>
+          </div>
+          <div class="field">
+            <label for="budget">Approximate Budget</label>
+            <select id="budget" name="budget">
+              <option value="" selected>Prefer to discuss…</option>
+              <option value="under-1000">Under $1,000</option>
+              <option value="1000-2500">$1,000 – $2,500</option>
+              <option value="2500-5000">$2,500 – $5,000</option>
+              <option value="5000-plus">$5,000+</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <div class="form-submit">
+          <button class="btn btn-gold" type="submit">Send My Booking Request</button>
+          <p class="form-note">No obligation. Your details are used only to respond to this request — never shared, never spammed.</p>
+        </div>
+      </form>
+
+      <aside class="booking-aside" aria-label="Booking information">
+        <div class="aside-card">
+          <h3>How Booking Works</h3>
+          <ol class="steps">
+            <li>
+              <div>
+                <strong>You send the details</strong>
+                <span>Date, venue, and the story of your event — right here on this page.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>I reply within 48 hours</strong>
+                <span>You'll hear back with my availability, lineup options, and a clear quote.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>We plan your set together</strong>
+                <span>A call or email exchange to shape the setlist, timing, and any special songs.</span>
+              </div>
+            </li>
+            <li>
+              <div>
+                <strong>Your date is locked in</strong>
+                <span>A simple agreement and deposit secure the booking. Then I get rehearsing.</span>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <div class="aside-card">
+          <h3>Prefer to Reach Out Directly?</h3>
+          <p>If forms aren't your thing, I'm just as happy to hear from you the old-fashioned way.</p>
+          <ul class="aside-contact">
+            <li>Email: <a href="mailto:bookings@arialanevocals.com">bookings@arialanevocals.com</a></li>
+            <li>Phone: <a href="tel:+15035550147">(503) 555-0147</a></li>
+            <li>Based in Portland, OR · Travels nationwide</li>
+          </ul>
+        </div>
+
+        <div class="aside-card">
+          <h3>Popular Dates Go Fast</h3>
+          <p>Summer Saturdays and December weekends typically book 6–9 months in advance. If your date falls in peak season, the sooner you reach out, the better.</p>
+          <p>Short notice? Ask anyway — cancellations happen, and I keep a flexible solo setup ready for last-minute bookings.</p>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Before You Ask</span>
+        <h2 id="faq-title">Common booking questions</h2>
+        <p>The things organizers most often want to know before hitting send.</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Do you bring your own sound equipment?</h3>
+          <p>Yes. For solo and duo bookings I supply a full professional PA suitable for up to 200 guests. For larger events and full-band sets, I'll coordinate directly with your venue or provide a tech rider for their sound team.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can you learn a specific song for us?</h3>
+          <p>Absolutely — it's one of my favorite parts of the job. Up to three custom song requests are included with every wedding and private party booking. Just give me at least three weeks' notice.</p>
+        </article>
+        <article class="faq-item">
+          <h3>How far will you travel?</h3>
+          <p>Anywhere in the country for the right event. Performances within 60 miles of Portland carry no travel fee; beyond that, travel and accommodation are quoted transparently up front — no surprises.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What does a booking cost?</h3>
+          <p>It depends on lineup, length, and location — a solo ceremony set is priced very differently from a full-band evening. Every quote is itemized and obligation-free, so the easiest way to find out is to ask.</p>
+        </article>
+        <article class="faq-item">
+          <h3>What happens if plans change?</h3>
+          <p>Life happens. Deposits are transferable to a new date within twelve months at no charge, subject to availability. Full cancellation terms are spelled out plainly in the booking agreement.</p>
+        </article>
+        <article class="faq-item">
+          <h3>Can we hear you before we commit?</h3>
+          <p>Of course. Head to my <a href="/portfolio" style="color:var(--gold-bright); text-decoration:underline;">portfolio</a> for live recordings and videos, and if I'm playing a public venue near you, I'm always glad to share upcoming show dates.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/">Aria <em>Lane</em> Vocals</a>
+        <p>Professional live vocalist for weddings, corporate events, private parties, and stages across the country.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/booking">Book Me</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Contact details">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:bookings@arialanevocals.com">bookings@arialanevocals.com</a></li>
+          <li><a href="tel:+15035550147">(503) 555-0147</a></li>
+          <li><a href="https://aria-lane-96d9.sites.tibly.ai">aria-lane-96d9.sites.tibly.ai</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="copyright">© 2025 Aria Lane Vocals. All rights reserved. Every note, from the heart.</div>
+  </div>
+</footer>
+
+  <script async src="https://api.tibly.ai/widget/v1.js"></script>
+</body>
+</html>
