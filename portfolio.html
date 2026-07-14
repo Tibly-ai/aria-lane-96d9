@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Watch performance videos, listen to studio and live recordings, and browse highlights from Aria Lane's past shows — weddings, galas, festivals, and venue residencies.">
+<title>Portfolio — Aria Lane Vocals | Performance Videos, Recordings &amp; Show Highlights</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #16121c;
+    --ink-soft: #241d2e;
+    --cream: #f7f2ea;
+    --cream-dim: #cfc6bc;
+    --gold: #c9a45c;
+    --gold-bright: #e0bd77;
+    --rose: #b06a7e;
+    --radius: 14px;
+    --max: 1120px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Manrope', sans-serif;
+    background: var(--ink);
+    color: var(--cream);
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 500; line-height: 1.15; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .eyebrow {
+    font-size: 0.78rem; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; display: block; margin-bottom: 14px;
+  }
+  .btn {
+    display: inline-block; padding: 15px 34px; border-radius: 100px;
+    font-weight: 600; font-size: 0.92rem; letter-spacing: 0.05em;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-gold {
+    background: linear-gradient(120deg, var(--gold), var(--gold-bright));
+    color: var(--ink);
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,164,92,0.35); }
+  .btn-ghost {
+    border: 1px solid rgba(247,242,234,0.35); color: var(--cream);
+  }
+  .btn-ghost:hover { background: rgba(247,242,234,0.08); transform: translateY(-2px); }
+
+  /* Header */
+  header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(22,18,28,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,164,92,0.18);
+  }
+  .nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 24px; max-width: var(--max); margin: 0 auto;
+  }
+  .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; letter-spacing: 0.04em; }
+  .brand em { font-style: normal; color: var(--gold); }
+  nav ul { display: flex; gap: 34px; list-style: none; align-items: center; }
+  nav a {
+    font-size: 0.88rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase;
+    color: var(--cream-dim); transition: color 0.2s ease; position: relative; padding-bottom: 4px;
+  }
+  nav a::after {
+    content: ""; position: absolute; left: 0; bottom: 0; width: 0; height: 1px;
+    background: var(--gold); transition: width 0.25s ease;
+  }
+  nav a:hover, nav a[aria-current="page"] { color: var(--cream); }
+  nav a:hover::after, nav a[aria-current="page"]::after { width: 100%; }
+  nav a.nav-cta {
+    color: var(--ink); background: var(--gold); padding: 10px 22px; border-radius: 100px;
+  }
+  nav a.nav-cta::after { display: none; }
+  nav a.nav-cta:hover { background: var(--gold-bright); color: var(--ink); }
+
+  /* Page hero */
+  .page-hero {
+    position: relative; overflow: hidden;
+    padding: 90px 0 80px; text-align: center;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(176,106,126,0.22), transparent 70%),
+      radial-gradient(ellipse 45% 40% at 15% 90%, rgba(201,164,92,0.14), transparent 70%),
+      var(--ink);
+  }
+  .page-hero::before {
+    content: "♫"; position: absolute; font-size: 20rem; color: rgba(201,164,92,0.05);
+    top: -70px; right: -20px; font-family: serif; pointer-events: none;
+  }
+  .page-hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.4rem);
+    max-width: 18ch; margin: 0 auto 20px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--gold-bright); }
+  .page-hero p.lead {
+    max-width: 56ch; margin: 0 auto; color: var(--cream-dim);
+    font-size: 1.08rem; font-weight: 300;
+  }
+
+  /* Section basics */
+  .section-head { text-align: center; max-width: 62ch; margin: 0 auto 60px; }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 14px; }
+  .section-head p { color: var(--cream-dim); font-weight: 300; }
+
+  /* Videos */
+  .videos { padding: 100px 0; }
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; }
+  .video-card {
+    background: linear-gradient(160deg, var(--ink-soft), rgba(36,29,46,0.4));
+    border: 1px solid rgba(201,164,92,0.16);
+    border-radius: var(--radius); overflow: hidden;
+    transition: transform 0.25s ease, border-color 0.25s ease;
+    display: flex; flex-direction: column;
+  }
+  .video-card:hover { transform: translateY(-6px); border-color: rgba(201,164,92,0.5); }
+  .video-frame {
+    aspect-ratio: 16 / 9; position: relative;
+    display: grid; place-items: center;
+    background:
+      radial-gradient(circle at 30% 25%, rgba(224,189,119,0.28), transparent 55%),
+      radial-gradient(circle at 75% 80%, rgba(176,106,126,0.35), transparent 60%),
+      var(--ink-soft);
+    border-bottom: 1px solid rgba(201,164,92,0.18);
+  }
+  .video-frame .play {
+    width: 64px; height: 64px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 1.3rem;
+    background: rgba(22,18,28,0.65); color: var(--gold-bright);
+    border: 1px solid rgba(201,164,92,0.5);
+    transition: background 0.25s ease, transform 0.25s ease;
+    padding-left: 5px;
+  }
+  .video-card:hover .play { background: var(--gold); color: var(--ink); transform: scale(1.08); }
+  .video-frame .duration {
+    position: absolute; bottom: 12px; right: 14px;
+    font-size: 0.75rem; letter-spacing: 0.08em; color: var(--cream-dim);
+    background: rgba(22,18,28,0.75); padding: 4px 10px; border-radius: 100px;
+    border: 1px solid rgba(247,242,234,0.12);
+  }
+  .video-meta { padding: 24px 26px 28px; flex: 1; }
+  .video-meta .tag {
+    font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; display: block; margin-bottom: 8px;
+  }
+  .video-meta h3 { font-size: 1.45rem; margin-bottom: 8px; }
+  .video-meta p { color: var(--cream-dim); font-size: 0.92rem; font-weight: 300; }
+
+  /* Recordings */
+  .recordings {
+    padding: 100px 0;
+    background: linear-gradient(180deg, transparent, rgba(176,106,126,0.06) 40%, transparent);
+  }
+  .tracklist { list-style: none; max-width: 820px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px; }
+  .track {
+    display: grid; grid-template-columns: 48px 1fr auto auto; align-items: center; gap: 22px;
+    background: var(--ink-soft); border: 1px solid rgba(201,164,92,0.16);
+    border-radius: var(--radius); padding: 20px 26px;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+  }
+  .track:hover { border-color: rgba(201,164,92,0.5); transform: translateX(6px); }
+  .track-num {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.6rem;
+    color: var(--gold-bright); text-align: center;
+  }
+  .track-info h3 { font-size: 1.35rem; }
+  .track-info p { color: var(--cream-dim); font-size: 0.85rem; font-weight: 300; }
+  .track-genre {
+    font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold-bright); border: 1px solid rgba(201,164,92,0.35);
+    padding: 6px 14px; border-radius: 100px; white-space: nowrap;
+  }
+  .track-time { font-size: 0.85rem; color: var(--cream-dim); font-variant-numeric: tabular-nums; }
+  .recordings-note {
+    text-align: center; margin-top: 36px; color: var(--cream-dim);
+    font-size: 0.9rem; font-weight: 300;
+  }
+  .recordings-note a { color: var(--gold-bright); }
+  .recordings-note a:hover { text-decoration: underline; }
+
+  /* Highlights */
+  .highlights { padding: 100px 0; }
+  .timeline { max-width: 780px; margin: 0 auto; position: relative; padding-left: 34px; }
+  .timeline::before {
+    content: ""; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 1px;
+    background: linear-gradient(180deg, var(--gold), rgba(201,164,92,0.1));
+  }
+  .milestone { position: relative; padding-bottom: 44px; }
+  .milestone:last-child { padding-bottom: 0; }
+  .milestone::before {
+    content: ""; position: absolute; left: -31px; top: 9px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: var(--ink); border: 2px solid var(--gold);
+  }
+  .milestone .when {
+    font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); font-weight: 600;
+  }
+  .milestone h3 { font-size: 1.6rem; margin: 6px 0 8px; }
+  .milestone p { color: var(--cream-dim); font-weight: 300; font-size: 0.96rem; max-width: 60ch; }
+
+  /* Repertoire strip */
+  .repertoire {
+    padding: 90px 0; text-align: center;
+    background:
+      radial-gradient(ellipse 55% 70% at 50% 100%, rgba(201,164,92,0.14), transparent 70%),
+      var(--ink-soft);
+    border-top: 1px solid rgba(201,164,92,0.18);
+    border-bottom: 1px solid rgba(201,164,92,0.18);
+  }
+  .repertoire h2 { font-size: clamp(2rem, 4vw, 2.9rem); margin-bottom: 16px; }
+  .repertoire p { color: var(--cream-dim); max-width: 56ch; margin: 0 auto 34px; font-weight: 300; }
+  .rep-list { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; list-style: none; margin-bottom: 44px; }
+  .rep-list li {
+    font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.05rem;
+    border: 1px solid rgba(201,164,92,0.3); color: var(--cream);
+    padding: 9px 20px; border-radius: 100px; background: rgba(22,18,28,0.4);
+  }
+  .rep-list li span { color: var(--gold-bright); font-style: normal; font-family: 'Manrope', sans-serif; font-size: 0.78rem; letter-spacing: 0.06em; margin-left: 8px; }
+
+  /* Footer */
+  .site-footer { padding: 56px 0 40px; }
+  .footer-grid {
+    display: flex; justify-content: space-between; align-items: flex-start;
+    gap: 40px; flex-wrap: wrap; margin-bottom: 40px;
+  }
+  .site-footer .brand { font-size: 1.4rem; }
+  .site-footer p { color: var(--cream-dim); font-size: 0.88rem; max-width: 34ch; margin-top: 10px; font-weight: 300; }
+  .footer-nav ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-nav a { color: var(--cream-dim); font-size: 0.9rem; transition: color 0.2s; }
+  .footer-nav a:hover { color: var(--gold-bright); }
+  .footer-nav h3 { font-family: 'Manrope', sans-serif; font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .copyright {
+    border-top: 1px solid rgba(247,242,234,0.1); padding-top: 24px;
+    font-size: 0.8rem; color: rgba(207,198,188,0.6); text-align: center;
+  }
+
+  @media (max-width: 820px) {
+    .nav { flex-direction: column; gap: 16px; }
+    nav ul { gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .page-hero { padding: 70px 0 60px; }
+    .track { grid-template-columns: 40px 1fr; row-gap: 10px; }
+    .track-genre { justify-self: start; grid-column: 2; }
+    .track-time { grid-column: 2; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a class="brand" href="/">Aria <em>Lane</em> Vocals</a>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/portfolio" aria-current="page">Portfolio</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a class="nav-cta" href="/booking">Book Me</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="page-hero">
+    <div class="wrap">
+      <span class="eyebrow">The Portfolio</span>
+      <h1>Don't take my word for it — <em>hear it</em> for yourself.</h1>
+      <p class="lead">A decade on stage leaves a trail: performance videos, studio recordings, and a few nights I'll never forget. Here's a curated slice of the work — the songs, the rooms, and the moments that made them.</p>
+    </div>
+  </section>
+
+  <section class="videos" aria-labelledby="videos-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">On Camera</span>
+        <h2 id="videos-title">Performance videos</h2>
+        <p>Filmed live — no studio polish, no second takes. This is exactly what your guests will hear in the room.</p>
+      </div>
+      <div class="video-grid">
+        <article class="video-card">
+          <div class="video-frame" role="img" aria-label="Video still of Aria Lane singing under warm stage light at a wedding reception">
+            <span class="play" aria-hidden="true">▶</span>
+            <span class="duration">4:12</span>
+          </div>
+          <div class="video-meta">
+            <span class="tag">Wedding · First Dance</span>
+            <h3>"At Last" — Live at Cascade Ridge Estate</h3>
+            <p>An Etta James classic sung for Maya &amp; Jordan's first dance, backed by my jazz trio. Filmed June 2025, Willamette Valley.</p>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame" role="img" aria-label="Video still of Aria Lane on a festival main stage with full band">
+            <span class="play" aria-hidden="true">▶</span>
+            <span class="duration">6:48</span>
+          </div>
+          <div class="video-meta">
+            <span class="tag">Festival · Full Band</span>
+            <h3>Soul Medley — Riverfront Summer Fest</h3>
+            <p>A high-energy run through Aretha, Amy Winehouse, and Leon Bridges for a main-stage crowd of 3,000. Portland, August 2024.</p>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame" role="img" aria-label="Video still of Aria Lane performing an intimate acoustic set with a guitarist">
+            <span class="play" aria-hidden="true">▶</span>
+            <span class="duration">3:37</span>
+          </div>
+          <div class="video-meta">
+            <span class="tag">Acoustic · Duo</span>
+            <h3>"Make You Feel My Love" — Acoustic Session</h3>
+            <p>Just voice and guitar — the stripped-back duo format I offer for ceremonies, dinners, and intimate gatherings.</p>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame" role="img" aria-label="Video still of Aria Lane singing at a black-tie corporate gala">
+            <span class="play" aria-hidden="true">▶</span>
+            <span class="duration">5:21</span>
+          </div>
+          <div class="video-meta">
+            <span class="tag">Corporate · Gala</span>
+            <h3>Standards Set — Meridian Group Annual Gala</h3>
+            <p>Sinatra, Fitzgerald, and Bublé for a black-tie awards night. Elegant, unobtrusive, and exactly on brief.</p>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame" role="img" aria-label="Video still of Aria Lane fronting her band at a dim jazz lounge">
+            <span class="play" aria-hidden="true">▶</span>
+            <span class="duration">7:05</span>
+          </div>
+          <div class="video-meta">
+            <span class="tag">Venue · Residency</span>
+            <h3>Late Set — The Velvet Note Lounge</h3>
+            <p>Highlights from my monthly residency: originals, deep-cut soul, and a crowd that refuses to sit down.</p>
+          </div>
+        </article>
+        <article class="video-card">
+          <div class="video-frame" role="img" aria-label="Video still of Aria Lane singing a pop ballad with string accompaniment">
+            <span class="play" aria-hidden="true">▶</span>
+            <span class="duration">4:44</span>
+          </div>
+          <div class="video-meta">
+            <span class="tag">Wedding · Ceremony</span>
+            <h3>"Can't Help Falling in Love" — with Strings</h3>
+            <p>Ceremony processional with string quartet — one of my most requested arrangements, filmed at Hillcrest Gardens.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="recordings" aria-labelledby="recordings-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">In the Studio</span>
+        <h2 id="recordings-title">Audio recordings</h2>
+        <p>Studio takes and live-room captures, spanning the range I bring to every booking — from smoky jazz to modern pop.</p>
+      </div>
+      <ol class="tracklist">
+        <li class="track">
+          <span class="track-num">01</span>
+          <div class="track-info">
+            <h3>Feeling Good</h3>
+            <p>Live-room recording with trio · Nina Simone arrangement</p>
+          </div>
+          <span class="track-genre">Jazz / Soul</span>
+          <span class="track-time">3:58</span>
+        </li>
+        <li class="track">
+          <span class="track-num">02</span>
+          <div class="track-info">
+            <h3>Golden Hour (Original)</h3>
+            <p>Original song · written and recorded 2024, Skylark Studios</p>
+          </div>
+          <span class="track-genre">Pop / R&amp;B</span>
+          <span class="track-time">4:21</span>
+        </li>
+        <li class="track">
+          <span class="track-num">03</span>
+          <div class="track-info">
+            <h3>Someone Like You</h3>
+            <p>Studio cover · piano and voice</p>
+          </div>
+          <span class="track-genre">Pop Ballad</span>
+          <span class="track-time">4:45</span>
+        </li>
+        <li class="track">
+          <span class="track-num">04</span>
+          <div class="track-info">
+            <h3>Fly Me to the Moon</h3>
+            <p>Live at The Velvet Note · with the Aria Lane Trio</p>
+          </div>
+          <span class="track-genre">Standards</span>
+          <span class="track-time">3:12</span>
+        </li>
+        <li class="track">
+          <span class="track-num">05</span>
+          <div class="track-info">
+            <h3>River Runs Slow (Original)</h3>
+            <p>Original song · acoustic duo version</p>
+          </div>
+          <span class="track-genre">Acoustic</span>
+          <span class="track-time">3:49</span>
+        </li>
+        <li class="track">
+          <span class="track-num">06</span>
+          <div class="track-info">
+            <h3>Ain't No Mountain High Enough</h3>
+            <p>Full-band live capture · Riverfront Summer Fest</p>
+          </div>
+          <span class="track-genre">Soul</span>
+          <span class="track-time">4:03</span>
+        </li>
+      </ol>
+      <p class="recordings-note">Want full-length demos or a sample tailored to your event style? <a href="/booking">Request my demo pack</a> — I'll send it within 48 hours.</p>
+    </div>
+  </section>
+
+  <section class="highlights" aria-labelledby="highlights-title">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The Road So Far</span>
+        <h2 id="highlights-title">Highlights from past shows</h2>
+        <p>A few standout nights from ten years and 350+ performances — the ones that still give me chills.</p>
+      </div>
+      <div class="timeline">
+        <article class="milestone">
+          <span class="when">August 2025</span>
+          <h3>Main Stage — Riverfront Summer Fest, Portland</h3>
+          <p>Second year invited back to the festival main stage, this time closing the Saturday lineup with my full six-piece band before a crowd of 3,000. The soul medley from this set is the most-shared video I've ever posted.</p>
+        </article>
+        <article class="milestone">
+          <span class="when">December 2024</span>
+          <h3>Meridian Group Annual Gala — 8th Year Running</h3>
+          <p>My eighth consecutive year as the featured entertainment for Meridian's black-tie awards night — a standards-heavy set for 400 guests at the Portland Art Museum's ballroom.</p>
+        </article>
+        <article class="milestone">
+          <span class="when">June 2024</span>
+          <h3>100th Wedding — Cascade Ridge Estate</h3>
+          <p>A milestone I never expected to count: my one-hundredth wedding performance. The couple asked for an obscure 1960s B-side for their first dance. We learned it, arranged it for trio, and there wasn't a dry eye in the tent.</p>
+        </article>
+        <article class="milestone">
+          <span class="when">October 2023</span>
+          <h3>Monthly Residency — The Velvet Note Lounge</h3>
+          <p>Launched an ongoing last-Friday residency after a one-off booking sold the room out. Two years on, it's still the night I test new arrangements and debut originals in front of Portland's warmest crowd.</p>
+        </article>
+        <article class="milestone">
+          <span class="when">May 2022</span>
+          <h3>National Anthem — Providence Park</h3>
+          <p>Sang the anthem a cappella for 25,000 soccer fans. Ninety seconds, no band, no safety net — still the single most exhilarating minute and a half of my career.</p>
+        </article>
+        <article class="milestone">
+          <span class="when">2015</span>
+          <h3>Where It Started — Tuesday Nights at Marlow's</h3>
+          <p>My first paid gig: a $50 Tuesday slot in a Portland jazz room, singing standards to a dozen regulars. I kept that first crumpled bill. Everything on this page grew from that stage.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="repertoire" aria-labelledby="repertoire-title">
+    <div class="wrap">
+      <span class="eyebrow">A Taste of the Setlist</span>
+      <h2 id="repertoire-title">Over 200 songs, tuned to your night</h2>
+      <p>These are a few crowd favorites from my working repertoire. Don't see your song? I learn new requests for nearly every booking — just ask.</p>
+      <ul class="rep-list" aria-label="Sample repertoire">
+        <li>At Last <span>Etta James</span></li>
+        <li>Valerie <span>Amy Winehouse</span></li>
+        <li>Fly Me to the Moon <span>Sinatra</span></li>
+        <li>Make You Feel My Love <span>Adele</span></li>
+        <li>Beyond <span>Leon Bridges</span></li>
+        <li>Dreams <span>Fleetwood Mac</span></li>
+        <li>Golden <span>Harry Styles</span></li>
+        <li>Feeling Good <span>Nina Simone</span></li>
+        <li>Lover <span>Taylor Swift</span></li>
+      </ul>
+      <a class="btn btn-gold" href="/booking">Book Me for Your Event</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/">Aria <em>Lane</em> Vocals</a>
+        <p>Professional live vocalist for weddings, corporate events, private parties, and stages across the country.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/booking">Book Me</a></li>
+        </ul>
+      </nav>
+      <nav class="footer-nav" aria-label="Contact details">
+        <h3>Contact</h3>
+        <ul>
+          <li><a href="mailto:bookings@arialanevocals.com">bookings@arialanevocals.com</a></li>
+          <li><a href="tel:+15035550147">(503) 555-0147</a></li>
+          <li><a href="https://aria-lane-96d9.sites.tibly.ai">aria-lane-96d9.sites.tibly.ai</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="copyright">© 2025 Aria Lane Vocals. All rights reserved. Every note, from the heart.</div>
+  </div>
+</footer>
+
+  <script async src="https://api.tibly.ai/widget/v1.js"></script>
+</body>
+</html>
